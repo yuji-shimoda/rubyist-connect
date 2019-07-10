@@ -31,7 +31,7 @@ gem 'validate_url'
 gem 'email_validator'
 
 # Middleware
-gem 'pg'
+gem 'mysql2'
 gem 'puma'
 gem 'httpclient'
 

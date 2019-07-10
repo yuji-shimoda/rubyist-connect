@@ -65,7 +65,7 @@ ApplicationRecord.transaction do
     event.name = event_name
     event.save!
 
-    users = User.active.order(Arel.sql('RANDOM()')).limit(participation_min_max.to_a.sample)
+    users = User.active.order(Arel.sql('RAND()')).limit(participation_min_max.to_a.sample)
     event.users << users
   end
 end

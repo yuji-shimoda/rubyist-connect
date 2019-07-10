@@ -1,9 +1,11 @@
 version: '3'
 services:
   db:
-    image: postgres
+    image: mysql:5.6
+    environment:
+      MYSQL_ROOT_PASSWORD: root
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - ./tmp/db:/var/lib/mysql
   web:
     build: .
     command: bundle exec puma -C config/puma.rb -e development -p 3000
