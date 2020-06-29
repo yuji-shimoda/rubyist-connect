@@ -1,12 +1,13 @@
-.user-profile
-  .user-image
-    - link_url = @event.present? ? event_user_path(@event, user.nickname) : user_path(user.nickname)
-    = link_to link_url do
-      = image_tag user.image, size: '80x80'
-  .user-description
-    p.user-name
-      = user.name_or_nickname
-    = render 'users/sns_links', user: user
-    .user-text
-      = markdown_to_html user.introduction.to_s.lines.first
-
+.card
+  .text-center
+    .card-img-top
+      - link_url = @event.present? ? event_user_path(@event, user.nickname) : user_path(user.nickname)
+      = link_to link_url do
+        = image_tag user.image, class: "img-circle", size: '100x100'
+    .card-body
+      h6.card-title
+        = user.name_or_nickname
+      p.card-text 
+        = markdown_to_html user.introduction.to_s.lines.first[0..20] + '...'
+    .card-footer
+      = render 'users/sns_links', user: user
